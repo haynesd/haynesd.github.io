@@ -1,0 +1,44 @@
+.skill-bar {
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  margin: 10px 0;
+}
+.skill-level {
+  height: 100%;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  padding: 5px;
+}
+.skill-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.skill-container i {
+  margin-right: 10px;
+}
+.content-section {
+  margin-bottom: 20px;
+}
+.docs-header {
+  margin-bottom: 10px;
+  color: #343a40;
+}
+.experience-container {
+  margin-bottom: 20px;
+}
+.experience-container h5 {
+  margin-bottom: 5px;
+}
+.italic-text {
+  font-style: italic;
+}
+.multicolumn {
+  column-count: 2;
+  column-gap: 20px;
+}
+.date-text {
+  font-size: 2rem;
+  color: #6c757d;
+}

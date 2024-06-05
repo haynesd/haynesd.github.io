@@ -1,0 +1,80 @@
+.sidenav {
+    width: 180px;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 10px;
+    overflow-x: hidden;
+    text-align: center; /* Center content horizontally */
+    background: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.sidenav a .bi {
+    margin-right: 8px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.sidenav a:hover {
+    background: rgba(0, 0, 0, 1);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidenav a:hover .bi {
+    color: rgb(128, 186, 217);
+}
+
+.sidenav img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+/* New active class */
+.sidenav a.active {
+    background: rgba(0, 0, 0, 1);
+    color: rgb(80, 171, 109);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidenav a.active .bi {
+    color: rgb(128, 186, 217);
+}
+
+.main {
+    margin-top: 10px;
+    margin-left: 200px; /* Same width as the sidebar + left position in px */
+    padding: 50px; 
+    margin-bottom: 1000px; /* Make sure contact rises to top */
+}
+
+.main-box {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
