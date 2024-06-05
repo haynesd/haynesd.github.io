@@ -27,8 +27,25 @@
 
     <!-- Sidebar Navigation Code -->
     <script src="js/navigation.js"></script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TKTVDRWJ'); 
+    </script>
+    <!-- End Google Tag Manager -->
+
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKTVDRWJ" 
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
     <!-- Left Navigation Sidebar -->
     <div class="sidenav">
         <img src="images/headshot.jpg" alt="David Haynes" width="125" class="img-thumbnail">
@@ -273,5 +290,27 @@
             <script src="js/contact.js"></script>
         </div> <!-- Contact Section End -->
     </div> <!-- main -->
+    <!-- Footer -->
+    <div id="footer"> 
+        <footer class="bg-dark text-white text-center py-3">
+            <div class="container">
+                <p class="mb-0">haynesd.github.io</p>
+                <p class="mb-0" id="page-count">Page Views: <span id="page-view-count">0</span></p>
+            </div>
+        </footer>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LCGY29J518"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-LCGY29J518');
+        </script>
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
 </body>
 </html>
