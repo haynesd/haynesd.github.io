@@ -64,10 +64,10 @@
 }
 
 .main {
-    margin-top: 10px;
+    margin-top: 0px;
     margin-left: 200px; /* Same width as the sidebar + left position in px */
-    padding: 50px; 
-    margin-bottom: 1000px; /* Make sure contact rises to top */
+    padding: 0px; 
+    margin-bottom: 0px; /* Make sure contact rises to top */
 }
 
 .main-box {

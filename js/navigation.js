@@ -1,5 +1,3 @@
-// navigation.js
-
 document.addEventListener('DOMContentLoaded', function() {
     var sidenavLinks = document.querySelectorAll('.sidenav a');
 
@@ -11,10 +9,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     sidenavLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            removeActiveClasses();
-            this.classList.add('active');
-            this.querySelector('.bi').classList.add('active');
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default anchor click behavior
+
+            var targetId = this.getAttribute('href').substring(1);
+            var targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                // Smooth scroll to the target element
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+                // Update the URL hash without jumping to it
+                history.pushState(null, null, `#${targetId}`);
+                
+                // Update the active link
+                removeActiveClasses();
+                this.classList.add('active');
+                this.querySelector('.bi').classList.add('active');
+            }
         });
     });
 
