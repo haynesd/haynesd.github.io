@@ -216,7 +216,7 @@
                     </script>
                 </div>
                 <div ng-app="mapApp" ng-controller="mapController">
-                    <h5 class="mb-3">Google Map - Using AngularJS</h5>
+                    <h5 class="mb-3">Google Maps - Using AngularJS</h5>
                     <div id="map" style="height: 500px; width: 100%;"></div>  
                     <script>
                         // Define the AngularJS application module
@@ -325,33 +325,28 @@
                 <p class="mb-0" id="page-count">Page Views: <span id="page-views">Page View: Loading...</span></p>
             </div>
         </footer>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LCGY29J518"></script>
-            <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-LCGY29J518');
-        </script>
-
         <script>
-            // Replace with your endpoint to get the page views
-            const pageViewsEndpoint = 'https://your-api-endpoint.com/page-views';
+            document.addEventListener("DOMContentLoaded", function() {
+                // Get the counter from localStorage
+                let counter = localStorage.getItem('pageCounter');
 
-            async function fetchPageViews() {
-                try {
-                const response = await fetch(pageViewsEndpoint);
-                const data = await response.json();
-                document.getElementById('page-views').innerText = `Page views: ${data.pageViews}`;
-                } catch (error) {
-                console.error('Error fetching page views:', error);
-                document.getElementById('page-views').innerText = 'Page views: Error loading';
+                // If no counter is found, initialize it
+                if (!counter) {
+                    counter = 0;
+                } else {
+                    // Convert the counter to a number
+                    counter = parseInt(counter, 10);
                 }
-            }
 
-            // Fetch page views on page load
-            fetchPageViews();
+                // Increment the counter
+                counter += 1;
+
+                // Update the counter in localStorage
+                localStorage.setItem('pageCounter', counter);
+
+                // Display the counter in the footer
+                document.getElementById('page-views').textContent = counter;
+            });
         </script>
     </div>
 </body>
