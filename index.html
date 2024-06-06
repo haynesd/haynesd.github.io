@@ -24,6 +24,9 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrdpWeS3To04OrNqQEYdy1542ZqKQpWcc"></script>
 
     <!-- Sidebar Navigation Code -->
     <script src="js/navigation.js"></script>
@@ -212,6 +215,29 @@
                         setInterval(displayTime, 500);
                     </script>
                 </div>
+                <div ng-app="mapApp" ng-controller="mapController">
+                    <div id="map" style="height: 500px; width: 100%;"></div>  
+                    <script>
+                        // Define the AngularJS application module
+                        var app = angular.module('mapApp', []);
+                
+                        // Define the controller
+                        app.controller('mapController', function($scope) {
+                            // Function to initialize the map
+                            $scope.initMap = function() {
+                                var mapOptions = {
+                                    center: new google.maps.LatLng(39.1318, -84.5151), // Center the map at University of Cincinnati
+                                    zoom: 15,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                };
+                                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                            };
+                
+                            // Call the initMap function when the controller loads
+                            $scope.initMap();
+                        });
+                    </script>
+                </div>
             </div>
             <!-- JavaScript Section End -->
         </div>
@@ -295,7 +321,7 @@
         <footer class="bg-dark text-white text-center py-3">
             <div class="container">
                 <p class="mb-0">haynesd.github.io</p>
-                <p class="mb-0" id="page-count">Page Views: <span id="page-view-count">0</span></p>
+                <p class="mb-0" id="page-count">Page Views: <span id="page-views">Page View: Loading...</span></p>
             </div>
         </footer>
         <!-- Google tag (gtag.js) -->
@@ -307,10 +333,25 @@
 
             gtag('config', 'G-LCGY29J518');
         </script>
-        <!-- Bootstrap JS and dependencies -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script>
+            // Replace with your endpoint to get the page views
+            const pageViewsEndpoint = 'https://your-api-endpoint.com/page-views';
+
+            async function fetchPageViews() {
+                try {
+                const response = await fetch(pageViewsEndpoint);
+                const data = await response.json();
+                document.getElementById('page-views').innerText = `Page views: ${data.pageViews}`;
+                } catch (error) {
+                console.error('Error fetching page views:', error);
+                document.getElementById('page-views').innerText = 'Page views: Error loading';
+                }
+            }
+
+            // Fetch page views on page load
+            fetchPageViews();
+        </script>
     </div>
 </body>
 </html>
