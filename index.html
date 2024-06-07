@@ -329,8 +329,9 @@
             document.addEventListener("DOMContentLoaded", function() {
                 const visitsDisplay = document.getElementById('visits');
                 const apiUrl = 'https://api.countapi.xyz/hit/haynesd.github.io/visits';
+                const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
-                fetch(apiUrl)
+                fetch(proxyUrl + apiUrl)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
