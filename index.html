@@ -322,30 +322,12 @@
         <footer class="bg-dark text-white text-center py-3">
             <div class="container">
                 <p class="mb-0">haynesd.github.io</p>
-                <p class="mb-0" id="page-count">Page Views: <span id="page-views">Page View: Loading...</span></p>
+                <p class="mb-0" id="page-count">Site Visits: <span id="visits">Loading...</span></p>
             </div>
         </footer>
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // Get the counter from localStorage
-                let counter = localStorage.getItem('pageCounter');
-
-                // If no counter is found, initialize it
-                if (!counter) {
-                    counter = 0;
-                } else {
-                    // Convert the counter to a number
-                    counter = parseInt(counter, 10);
-                }
-
-                // Increment the counter
-                counter += 1;
-
-                // Update the counter in localStorage
-                localStorage.setItem('pageCounter', counter);
-
-                // Display the counter in the footer
-                document.getElementById('page-views').textContent = counter;
+            $.getJSON("https://api.countapi.xyz/hit/haynesd.github.io/visits", function(response) {
+                $("#visits").text(response.value);
             });
         </script>
     </div>
