@@ -173,8 +173,12 @@
                 </section>
                 <section class="content-section container">
                     <h4 class="docs-header">Education</h4>
+                    <span class="date-text">March 1996</span>
                     <div>University of Cincinnati</div>
                     <div>Bachelor of Science in Computer Science</div>
+                    <span class="date-text">Decmeber 2014</span>
+                    <div>University of Cincinnati</div>
+                    <div>Master of Science in Computer Science</div>
                 </section>
             </div>
              <!-- About Section End -->
@@ -214,7 +218,7 @@
                         }
                         setInterval(displayTime, 500);
                     </script>
-                </div>
+                </div><br>
                 <div ng-app="mapApp" ng-controller="mapController">
                     <h5 class="mb-3">Google Maps - Using AngularJS</h5>
                     <div id="map" style="height: 500px; width: 100%;"></div>  
@@ -326,25 +330,18 @@
             </div>
         </footer>
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const visitsDisplay = document.getElementById('visits');
-                const apiUrl = 'https://api.countapi.xyz/hit/haynesd.github.io/visits';
+            async function updateVisitCount() {
+                try {
+                    const response = await fetch("https://api.countapi.xyz/hit/haynesd.github.io/visits");
+                    const data = await response.json();
+                    document.getElementById('visits').innerText = data.value;
+                } catch (error) {
+                    console.error('Error fetching visit count:', error);
+                    document.getElementById('visits').innerText = 'Error';
+                }
+            }
 
-                fetch(apiUrl)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        visitsDisplay.textContent = data.value;
-                    })
-                    .catch(error => {
-                        console.error('There has been a problem with your fetch operation:', error);
-                        visitsDisplay.textContent = 'Error';
-                    });
-            });
+            window.onload = updateVisitCount;
         </script>
     </div>
 </body>
